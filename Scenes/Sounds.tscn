@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Audio/collision_beep.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Audio/applause.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/trial-off.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/game_over.ogg" type="AudioStream" id=4]
+
+[node name="Sounds" type="Node2D"]
+
+[node name="BravoSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TrialsSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )

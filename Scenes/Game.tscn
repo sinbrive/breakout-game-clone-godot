@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/theBricks.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/bricks_container.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=4]
 [ext_resource path="res://Assets/element_green_rectangle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/back.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Display.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Sounds.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 198.5 )
@@ -27,7 +28,7 @@ texture = ExtResource( 6 )
 
 [node name="Display" parent="." instance=ExtResource( 7 )]
 
-[node name="theBricks" parent="." instance=ExtResource( 2 )]
+[node name="Bricks_container" parent="." instance=ExtResource( 2 )]
 
 [node name="Paddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 262, 378 )
@@ -81,3 +82,10 @@ texture = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="endTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Sounds" parent="." instance=ExtResource( 8 )]
+
+[connection signal="timeout" from="endTimer" to="." method="_on_endTimer_timeout"]

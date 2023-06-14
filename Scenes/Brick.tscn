@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Brick.gd" type="Script" id=1]
+[ext_resource path="res://Assets/element_yellow_rectangle.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27, 13.5 )
+
+[node name="BrickW" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[node name="Collision_node" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
